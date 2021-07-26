@@ -10,5 +10,6 @@ Topics include:
 (iii) Best practices in machine learning (bias/variance theory; innovation process in machine learning and AI).    
 - Instructor : Andrew Ng    
 - Goal : 21.07.25 ~ 21.08.08 (2 weeks)
+- Reference Page ([Machine Learning 강의노트 > Link](https://wikidocs.net/book/587))
 
 ----
