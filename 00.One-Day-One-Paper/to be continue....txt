@@ -1,2 +1,7 @@
 Dice score
 U-NET
+Histogram equalization augmentation
+AdaIN
+Vision Transformer
+UNIT
+'assessing how realistic an image is'  : GAN 평가하는 지표로 얼마나 사실적으로 합성했는지를 평가하는 지표가 있는지 
