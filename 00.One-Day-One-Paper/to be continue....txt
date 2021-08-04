@@ -3,11 +3,11 @@ U-NET
 Histogram equalization augmentation
 AdaIN
 Vision Transformer
-UNIT
+done - UNIT
 'assessing how realistic an image is'  : GAN 평가하는 지표로 얼마나 사실적으로 합성했는지를 평가하는 지표가 있는지 
 GAN 지표 - FID, IS
 Variational Autoencoder (VAE)
 MAR algorithms
 VAE-GAN
-이미지에 사용되는 Transformer : vision Transformer
 multi domain
+instance normalization (IN) layer
