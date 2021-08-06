@@ -1,9 +1,10 @@
 Dice score
-U-NET
+⭕ U-NET
+3D UNET
 Histogram equalization augmentation
-AdaIN
+⭕ AdaIN
 Vision Transformer
-done - UNIT
+⭕ UNIT
 'assessing how realistic an image is'  : GAN 평가하는 지표로 얼마나 사실적으로 합성했는지를 평가하는 지표가 있는지 
 GAN 지표 - FID, IS
 Variational Autoencoder (VAE)
@@ -11,3 +12,5 @@ MAR algorithms
 VAE-GAN
 multi domain
 instance normalization (IN) layer
+Retain
+FCN
