@@ -1,6 +1,6 @@
 Dice score
 ⭕ U-NET
-3D UNET
+⭕ 3D UNET
 Histogram equalization augmentation
 ⭕ AdaIN
 Vision Transformer
