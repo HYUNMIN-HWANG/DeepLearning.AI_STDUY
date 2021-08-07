@@ -2,6 +2,9 @@
 <img src="https://img.shields.io/badge/Pytorch-EE4C2C?style=flat-square&logo=Pytorch&logoColor=white"/></a>
 <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=flat-square&logo=TensorFlow&logoColor=white"/></a>
 
+## 0. One-Day-One-Paper
+1일 1논문 리뷰 스터디
+
 ## 1. Machine Learning
 This course provides a broad introduction to machine learning, datamining, and statistical pattern recognition.    
 Topics include:     
