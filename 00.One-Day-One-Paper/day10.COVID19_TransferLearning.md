@@ -98,3 +98,57 @@ However, due to the limited number of COVID-19 images publicly available so far,
 ---
 ---
 
+# Deep-COVID: Predicting COVID-19 from chest X-ray images using deep transfer learning
+- https://www.sciencedirect.com/science/article/abs/pii/S1361841520301584?via%3Dihub
+- code https://github.com/shervinmin/DeepCovid
+- [Submitted on 20 Apr 2020 (v1), last revised 21 Jul 2020 (this version, v3)]
+- Medical Image Analysis
+
+---
+
+## Summary
+ResNet18, ResNet50, SqueezeNet, and DenseNet-121 4가지 모델로 chest X-ray을 학습시켜 COVID-19 를 예측했다.
+
+- dataset(COVID-Xray-5k dataset) : 
+![image](https://user-images.githubusercontent.com/70581043/128684786-69312608-dd9d-47e8-815e-c8d3dbd5e46e.png)
+COVID-Xray 이미지가 다른 Xray 보다 데이터의 수가 훨씬 적기 때문에 data augmentation과 pre-trained 모델을 활용했다.
+- Transfer learning : 이미지 특징을 추출하기 위해서 pre-trained models을 사용했고, 마지막 layer를 fine tuning 했다.
+1. ResNet18 and ResNet50
+![image](https://user-images.githubusercontent.com/70581043/128685224-77fea539-5636-47b0-84e3-bad348728958.png)
+> - ImageNet dataset 으로 훈련이 되어 있음
+> - identity shortcut connection : 한 개 이상의 layer를 skip함으로써  이 전의 layer에 직접적인 경로를 제공해줌
+> - ResNet50 은 ResNet18보다 층 수가 더 많다.
+
+2. SqueezeNet
+![image](https://user-images.githubusercontent.com/70581043/128685253-b2250242-2cde-450e-8f82-8b29d9cfc42b.png)
+> - light-weight models
+> - “squeezes”(1X1 layer)와 “expand” (1×1 and 3 ×3 layer)를 번갈아 사용
+
+3. DenseNet
+![image](https://user-images.githubusercontent.com/70581043/128685270-362a0dbb-ab91-4a29-9a01-57bfce1787fc.png)
+> - 모든 레이어들은 이전 레이어들로부터 인풋을 받고, 각 feature map이 그 다음 레이어에 전달된다.
+
+## Train
+- Model hyper-parameters
+> - 100 epochs.
+> - batch size is set to 20
+> - ADAM optimizer
+> - learning rate of 0.0001
+> - All image 224 ×224
+
+- Evaluation metrics
+![image](https://user-images.githubusercontent.com/70581043/128686742-661359fb-816a-4062-86f6-2bc246fbc9e2.png)
+![image](https://user-images.githubusercontent.com/70581043/128687031-a42d3954-145c-4e00-adc3-0857f7b0c1e6.png)
+신뢰구간은 95% (z=1.96)을 사용함
+ 
+- Receiver operating characteristic (ROC) curve,
+![image](https://user-images.githubusercontent.com/70581043/128688473-7ec895f7-a1ec-4b64-be58-ef0f6be27367.png)
+4개 모델 모두 거의 비슷함 (SqueezeNet이 조금은 성능 좋음)
+
+- heatmap
+![image](https://user-images.githubusercontent.com/70581043/128691695-931081cc-1eb5-4aa0-a7ba-30e6f6587b4a.png)
+감염되어 있다고 예측되는 곳을 heatmap으로 표시함. 방사선 전문의가 표시한 지역과 거의 동일
+
+---
+실험이 너무 단순했다. (이미지 데이터 모아서 전이학습에 넣으면 끝) 단순했는데도 결과가 잘 나와서 놀라기도 했다.
+ResNet18, ResNet50, SqueezeNet, and DenseNet-121 4가지 모델에 대해서 대략적으로만 알고 있는데 나중에 논문 읽으면서 공부해야겠다.
