@@ -111,6 +111,93 @@ variational lower bound 의 미분값을 얻을 수 있는데 사용할 수 있�
 
 뭐라고 하는건지 모르겠,,,,, 추가적으로 다른 참고자료들을 보면서 이해해야겠습니다..😭
 
+---
+요약하자면, 우리가 구하고 싶은 것은 x에 대한 확률 값이다. ![image](https://user-images.githubusercontent.com/70581043/128833399-8fcef3b6-9a8b-49c6-b30c-4da331633ae5.png) 이를 구하기 위해서 DKL의 최소값을 구해야 하는 문제가 된다. 이는 곧 Lower bound의 최댓값을 구하는 문제와 동일하다. 우리는 실제 x값과 z값을 모르기 때문에 실제 값과 근사한 ![image](https://user-images.githubusercontent.com/70581043/128833827-4cc847be-6e9d-4e9d-afb6-643712670df0.png) 을 설정해준다. 또한 미분이 가능하도록 reparameterization trick을 사용했다. 즉 z를 함수 g로 표현함으로써 (평균, 분산)에 대해 미분이 가능하게 바꾸었다. 최종 loss function은 다음과 같다 
+![image](https://user-images.githubusercontent.com/70581043/128834225-8fc5b457-f3a4-408f-b044-f7e836d9b231.png)
+
 
 ---
+---
+---
+[추가 정리]
 
+## 기본 개념
+**1. 오토인코더**
+![image](https://user-images.githubusercontent.com/70581043/128823841-efdd8a56-443b-4791-99a0-aedbd07bec26.png)
+- 오토인코더는 고차원의 입력 데이터(x)를 저차원의 잠재변수(latent variables; z)로 압축(=차원축소)한 뒤, 다시 입력 데이터에 가까운 고차원 데이터(x’)로 복원하는 구조의 모델 
+- 압축하는 부분을 encoder, 복원하는 부분을 decoder
+- encoder를 하면서 데이터가 가진 수십, 수백개 변수로부터 중요한 변수를 추출함
+- decoder는 정답 데이터를 입력 데이터로 사용함 ( Self-supervised learning )
+- VAE에서는 decoder를 사용해서 새 데이터를 만들어 내기 때문에 생성 모델의 용도로 사용됨
+
+**2. Variational inference**
+![image](https://user-images.githubusercontent.com/70581043/128824437-26a0f228-a178-4303-8f6c-8a1e60459f05.png)
+위의 식을 최소하하면,
+![image](https://user-images.githubusercontent.com/70581043/128824519-6743ace8-b8b0-4c1e-82c2-d268f3b31e0b.png)
+![image](https://user-images.githubusercontent.com/70581043/128824711-b98cfb47-b54b-4c5d-a13b-e801de4dd5b6.png)
+
+- Variational inference는, 어떤 사후확률 을 알고 싶을 때 이를 근사(approximate)한 확률분포를 상정한 뒤, 두 분포 간 차이를 수치화한 KL divergence를 최소화해 근사 분포를 구하는 접근법
+-  ‘Lower bound’(또는 ‘ELBO’)를 최대화하는 문제로 구해도 된다.
+
+**3. Variational 오토인코더(VAE)**
+![image](https://user-images.githubusercontent.com/70581043/128825034-03cf1d47-be22-4b55-8b53-2edc9ab301c0.png)
+- VAE는 2번의 Variational inference를 사용한 오토인코더
+- x를 z의 approximation 분포의 평균, 분산 벡터로 인코딩
+손실함수
+![image](https://user-images.githubusercontent.com/70581043/128825500-ee46ae27-5f22-4a61-a565-7dcaeaee1cc7.png)
+
+4. 
+## 1. Problem Suggestion 
+![image](https://user-images.githubusercontent.com/70581043/128815836-96290485-a175-40a9-9d16-5ab18ccd697e.png)
+VAE에서의 목표는 posterior distribution 분포를 알아내기 어려운 문제를 임시 파라미터를 두어 학습하는 것이다. 위 그림에서 우리는  pθ(x)가 무엇인지 모르기 때문에  pθ(z|x)을 알아내는 것이 불가능하다. 따라서 이에 근사한 값인 qφ(z|x)(검정색 점선)을 두어 posterior를 대신 모델링 하도록 한다.
+
+
+## 2. 1 Problem scenario
+- 데이터셋이 생성되는 과정은 아래와 같다.
+
+> 1. 잠재변수 z가  Prior distribution pθ*로부터 생성된다.
+> 2.  dataset xi 가 어떤 conditional distribution pθ*(x|z)로부터 생성된다.     
+          
+- 하지만 문제는 parameter θ*를 모르고, latent variable z도 모른다. (모델링이 어렵다.)         
+
+- marginal probability p(x) 를 쉽게 이용하기 위한 가정은 하지 않았다.
+> -  marginal likelihood를 구할 수 없는 경우도 동작 가능
+> - 데이터 셋이 큰 경우도 동작 가능    
+
+![image](https://user-images.githubusercontent.com/70581043/128817604-cad3a0ed-31ef-4f86-9a0f-ba3da4e569bf.png)
+- recognition model qφ(z|x)를 도입함   
+> - true posterior pθ(z|x)에 대한 approximation
+> - 인코더 라고 볼 수 도 있다.
+
+## 2.2 Variational Bound
+![image](https://user-images.githubusercontent.com/70581043/128820419-eb8ac191-704f-489e-9239-f0e9d25701a5.png)
+![image](https://user-images.githubusercontent.com/70581043/128826409-8143d5c5-dfa2-4513-ad39-694e8c3c2517.png)
+
+x에 관한 marginal likelihood 를 위와 같이 정의할 수 있다. 이때 DKL값이 항상 non-negative이기 때문에 해당 식은 아래와 같이 쓸 수도 있다.
+![image](https://user-images.githubusercontent.com/70581043/128820558-69257ca9-ca5c-4801-8bd0-174f4fe7a891.png)
+우변을 "variational lower bound" 라고 부른다. 이때  varaiational parameter 인 φ와 generative parameter인  θ 을 모두 최적화하고 싶다.
+
+## 2.3 The SGVB estimator and AEVB algorithm
+posterior를 다음과 같이 reparameterize 한다. z ∼ qφ(z|x)
+![image](https://user-images.githubusercontent.com/70581043/128820927-0ca44b9d-3823-4abf-921f-54f3f3c642d4.png)
+variational lower bound 첫 번째 식(일반적인, Stochastic Gradient Variational Bayes estimator)
+![image](https://user-images.githubusercontent.com/70581043/128821673-96adab74-bf91-4fb4-95a7-a51db3959023.png)
+variational lower bound 두 번째 식( kl divergence는  φ를 regularization 하는 term)
+![image](https://user-images.githubusercontent.com/70581043/128821755-816ac8b5-7fa4-4f45-b68c-fb0547464a51.png)
+전체 dataset 에 대한 Lower bound
+![image](https://user-images.githubusercontent.com/70581043/128822010-4525c6f2-4133-4762-b9ef-f0aa2e56ec39.png)
+
+## 2.4 The reparametrization trick 
+![image](https://user-images.githubusercontent.com/70581043/128825586-a42a95a5-e1fe-42b4-976d-767de77908ee.png)
+z를 함수 g로 표현함으로써 (평균, 분산)에 대해 미분이 가능하게 바꾸는 트릭
+
+## 3. Example : Variational Auto-Encoder 
+ loss function식
+![image](https://user-images.githubusercontent.com/70581043/128822333-1a75fc68-ea4e-49f1-96d3-7eee281392d7.png)
+
+---
+[참고자료] 
+- https://judy-son.tistory.com/11
+- https://garden-k.medium.com/testing-b3966b642cf5
+
+---
