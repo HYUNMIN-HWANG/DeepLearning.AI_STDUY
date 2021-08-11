@@ -16,4 +16,4 @@ Retain
 FCN
 ResNet18, ResNet50, SqueezeNet, and DenseNet-121
 Grad-CAM
- COVID-Net
+COVID-Net
