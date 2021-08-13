@@ -13,7 +13,7 @@ VAE-GAN
 multi domain
 instance normalization (IN) layer
 Retain
-FCN
+⭕ FCN
 ResNet18, ResNet50, SqueezeNet, and DenseNet-121
 Grad-CAM
 COVID-Net
