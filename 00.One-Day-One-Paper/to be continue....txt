@@ -14,6 +14,8 @@ multi domain
 instance normalization (IN) layer
 Retain
 ⭕ FCN
-ResNet18, ResNet50, SqueezeNet, and DenseNet-121
+ResNet18, ResNet50
+DenseNet-121
+⭕ SqueezeNet
 Grad-CAM
 COVID-Net
