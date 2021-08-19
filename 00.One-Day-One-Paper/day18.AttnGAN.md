@@ -1,4 +1,4 @@
-# AttnGAN: Fin![image](https://user-images.githubusercontent.com/70581043/130043243-1d6f5bb7-a216-4864-8f57-166702bc1c42.png)-Grained Text to Image Generation with Attentional Generative Adversarial Networks
+# AttnGAN: Fine-Grained Text to Image Generation with Attentional Generative Adversarial Networks
 - https://arxiv.org/abs/1711.10485
 - Computer Vision and Pattern Recognition (cs.CV)
 - [Submitted on 28 Nov 2017]
