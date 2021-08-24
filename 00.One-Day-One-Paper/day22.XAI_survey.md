@@ -55,5 +55,23 @@
 - Quantitatively maximizing interpretability (LIME, MUSE)
 - Activation Optimization : The interpretability relies on direct observation of the neuron-activation-optimized images.
 
+---
+
 ### C. Other Perspectives to Interpretability
-to be continued....
+각기 다른 task 마다 필요한 interpretability 방법이 다르다. 어떻게 고를 것인가?
+
+**C.1) Data-driven Interpretability**
+- Data in catalogue. : 카테고리 별로 정렬한다. 어떻게 많은 카테고리들을 큰 하나의 행렬로 모을 것인가? → crowd-sourcing, pick latent dimensions (common criteria)
+- Incompleteness : 하나의 의견으로 모여지지 않을 때가 있다. 장점은 서로 다른 지지에 대한 강력한 근거가 있다는 것, 단점은 해석 가능성 기준에 미치지 못한다.
+
+**C.2) Invariances**
+- Implementation invariance : functionally equivalent functions, 속성을 사용하지 않고도 진술을 확장할 수 있다.
+- Input invariance : translating an image을 하면 super-pixels 경계도 translate 한다.
+
+**C.3) Interpretabilities by Utilities**
+- Application-based : 이미 설명하능한 모델을 기반으로 같은 작업을 수행한다.
+- Human-based : 사람이 평가한 것과, 컴퓨터가 평가한 것을 비교한다.
+- Functions-based : use metrics
+
+## XAI IN MEDICAL FIELD
+의학분야에서는 다른 분야와 다르게 risk and responsibilities를 고려해야 한다.
