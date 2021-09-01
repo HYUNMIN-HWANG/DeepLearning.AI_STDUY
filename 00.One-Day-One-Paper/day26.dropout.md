@@ -25,6 +25,29 @@ dropout 기법을 사용함으로써 overfitting을 막을 수 있고, neural ne
 ![image](https://user-images.githubusercontent.com/70581043/131345568-0c2048a2-ab39-4a01-9685-4678ba04abae.png) : apply activation function
 
 
+---
 
+## Results
+### MNIST
+![image](https://user-images.githubusercontent.com/70581043/131697758-686151d7-a31e-4b43-8a32-6f367d876e2e.png)
+- Deep Boltzmann Machines : pretrained dropout nets일 때 가장 error 가 작았다.
 
+### CIFAR10 and CIFAR100
+![image](https://user-images.githubusercontent.com/70581043/131698710-26e4f0b5-22f0-461f-a62a-bb89b0a02ad4.png)
+- CIFAR10 : FC 다음에 dropout -> 모든 레이어에 dropout -> RELU  대신에 maxout 일 때 성능이 가장 좋았다.
+- CIFAR100 : 모든 레이어에 dropout
 
+### IMAGENET
+![image](https://user-images.githubusercontent.com/70581043/131699360-c03abd0b-9b56-4c9c-a4dd-0b11ccfc6a69.png)
+- 보통 26%의 error rate를 보여주는데, dropout을 적용함으로써 16.4%까지 떨어졌다
+
+> 그 외, Speech Recognition, document classifier 에서도 dropout을 적용했을 때 좋은 성능을 보였다.
+
+## 다른 모델과의 비교
+- Bayesian Neural Network와 비교했을 때, dropout을 사용했을 때 더 빠르게 성능을 처리할 수 있었고 regularizing 효과도 볼 수 있었다.
+- Standard Regularizers 인 L2 등등과 비교를 했을 때, dropout 또한 regularizer 기능을 수행할 수 있다.
+
+## Dropout의 효과
+- detect edges, strokes, spots 할 수 있다.
+- 한계점 : activations of the hidden units become sparse.
+- train할 때 시간이 오래 걸린다.
