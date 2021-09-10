@@ -1,4 +1,4 @@
-Dice score
+⭕ Dice score
 ⭕ U-NET
 ⭕ 3D UNET
 Histogram equalization augmentation
