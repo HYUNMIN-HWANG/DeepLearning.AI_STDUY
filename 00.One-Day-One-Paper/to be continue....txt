@@ -20,3 +20,5 @@ DenseNet-121
 Grad-CAM
 COVID-Net
 Semi-supervised learning
+beta-VAE
+group normalization
