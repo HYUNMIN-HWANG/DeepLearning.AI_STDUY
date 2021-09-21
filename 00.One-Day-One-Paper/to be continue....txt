@@ -21,4 +21,4 @@ Grad-CAM
 COVID-Net
 Semi-supervised learning
 beta-VAE
-group normalization
+⭕ group normalization
