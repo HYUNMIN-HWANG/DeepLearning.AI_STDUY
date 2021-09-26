@@ -22,4 +22,5 @@ COVID-Net
 Semi-supervised learning
 beta-VAE
 ⭕ group normalization
-InfoGAN
+⭕ InfoGAN
+NeRF
