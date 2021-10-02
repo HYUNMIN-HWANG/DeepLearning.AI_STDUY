@@ -1,26 +1,25 @@
 ⭕ Dice score
 ⭕ U-NET
 ⭕ 3D UNET
-Histogram equalization augmentation
 ⭕ AdaIN
-Vision Transformer
 ⭕ UNIT
-'assessing how realistic an image is'  : GAN 평가하는 지표로 얼마나 사실적으로 합성했는지를 평가하는 지표가 있는지 
-GAN 지표 - FID, ⭕ IS
 ⭕ Variational Autoencoder (VAE) -> 다시 공부해야 함
+⭕ SqueezeNet
+⭕ FCN
+🔺 beta-VAE
+⭕ group normalization
+⭕ InfoGAN
+🔺NeRF
+GAN 지표 - FID, ⭕ IS
+Histogram equalization augmentation
+Vision Transformer
+'assessing how realistic an image is'  : GAN 평가하는 지표로 얼마나 사실적으로 합성했는지를 평가하는 지표가 있는지 
 MAR algorithms
 VAE-GAN
 multi domain
 instance normalization (IN) layer
 Retain
-⭕ FCN
 ResNet18, ResNet50
-DenseNet-121
-⭕ SqueezeNet
 Grad-CAM
 COVID-Net
 Semi-supervised learning
-beta-VAE
-⭕ group normalization
-⭕ InfoGAN
-NeRF
