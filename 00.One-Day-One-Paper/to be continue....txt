@@ -11,6 +11,7 @@
 ⭕ EfficientNet
 🔺 beta-VAE
 🔺 NeRF
+⭕ Grad-CAM
 GAN 지표 - FID, ⭕ IS
 Histogram equalization augmentation
 Vision Transformer
@@ -20,6 +21,5 @@ VAE-GAN
 multi domain
 Retain
 ResNet18, ResNet50
-Grad-CAM
 COVID-Net
 Semi-supervised learning
