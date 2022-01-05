@@ -3,7 +3,7 @@
 ⭕ 3D UNET
 ⭕ AdaIN
 ⭕ UNIT
-⭕ Variational Autoencoder (VAE) -> 다시 공부해야 함
+⭕ Variational Autoencoder (VAE)
 ⭕ SqueezeNet
 ⭕ FCN
 ⭕ group normalization
